@@ -19,20 +19,23 @@
       <!-- 侧边栏 -->
       <el-aside class="my-aside" width="200px">
           <!-- 使用饿了吗ui的导航栏菜单实现 -->
-        <el-menu default-active="2" class="el-menu-vertical-demo">
+        <el-menu router default-active="2" class="el-menu-vertical-demo">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>导航一</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="1-1"><span class="el-icon-menu"></span>选项1</el-menu-item>
+              <el-menu-item index="users"><span class="el-icon-menu"></span>选项1</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
       </el-aside>
       <!-- 主体区域 -->
-      <el-main class="my-main">Main</el-main>
+      <el-main class="my-main">
+          <!-- 出口 -->
+          <router-view>主体</router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -64,7 +67,8 @@ export default {
       background: skyblue;
     }
     .my-main {
-      background-color: green;
+      background-color: #e9eef3;
+      padding-top: 0;
     }
   }
 }
