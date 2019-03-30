@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+//导入全局样式
+import './assets/base.scss'
+
 //导入饿了吗ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
