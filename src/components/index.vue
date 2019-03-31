@@ -11,7 +11,7 @@
           <h2>抠脚瞎后台管理系统</h2>
         </el-col>
         <el-col :span="2">
-          <el-button type="warning">退出</el-button>
+          <el-button type="warning" @click="logout">退出</el-button>
         </el-col>
       </el-row>
     </el-header>
@@ -42,7 +42,23 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    logout(){
+      //删除缓存
+      window.sessionStorage.removeItem("token");
+      //编程式导航 去登录页
+      this.$router.push("/login");
+    }
+  },
+  beforeCreate() {
+    if(window.sessionStorage.getItem("token")){
+
+    }else{
+      this.$message.error("兄弟，请先登录");
+      this.$router.push("/login");
+    }
+  },
 };
 </script>
 
