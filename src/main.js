@@ -35,7 +35,12 @@ axios.interceptors.response.use(
     console.log('响应拦截')
     console.log(response)
     // 统一进行弹框
-    Vue.prototype.$message.success(response.data.meta.msg)
+    if([200,201,204].indexOf(response.data.meta.status) != -1){
+      Vue.prototype.$message.success(response.data.meta.msg)
+    }else{
+      Vue.prototype.$message.warning(response.data.meta.msg)
+    }
+    
     return response
   },
   function(error) {
